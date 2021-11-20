@@ -1,0 +1,25 @@
+<div class="container">
+    <h1 style="margin: auto;color: gray; text-align: center;">History</h1>
+
+    <div class="columns is-multiline">
+        <!-- loop over our users and give them each a card -->
+        <div class="column is-4" *ngFor="let h of history">
+            <div class="card">
+                <div class="card-content">
+                   <div class="row">
+                    <div class="col-md-8">
+                        {{h}}
+                    </div>
+                    <div class="col-md-3">
+                        <button class="delete-btn" (click)="deleteHistory($event)" value="{{h}}">
+                            delete
+                        </button>
+                    </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+</div>

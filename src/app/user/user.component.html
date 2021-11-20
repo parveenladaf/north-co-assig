@@ -1,1 +1,71 @@
-<p>{{user}}</p>
+<div class="container">
+
+
+    <div style="text-align: center; background-color: #FFD68A;" class="notes">
+        <div>Notes</div>
+        <span> Search user name as listed below. </span><br>
+        <span>If user is found you can view the profile by clicking view button</span><br>
+        <span>By clicking history button you will redict to the history of the searches</span><br>
+        <span>On history page you can delete history</span>
+    </div>
+
+    <div>
+        <div class="row header">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input type="search" id="form1" class="form-control" placeholder="Search User Name" value=""
+                            (change)="onChange($event)" />
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="onSearch($event)">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <a routerLink="/history" target="_blank" class="btn btn-primary">History</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="section">
+            <div class="container">
+                <div *ngIf="searchUserNot" class="columns is-multiline">
+                    <!-- loop over our users and give them each a card -->
+                    <div class="column is-4" *ngFor="let user of users">
+                        <div class="card">
+                            <div class="card-content">
+                                {{ user.login }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="searchUserFound" class="columns is-multiline">
+                    <!-- loop over our users and give them each a card -->
+                    <div class="column is-4" *ngFor="let user of users">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        {{ user.login }}
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="{{user.html_url}}" class="btn btn-primary"> View</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+</div>

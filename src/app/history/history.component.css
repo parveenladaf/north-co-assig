@@ -1,0 +1,7 @@
+.card-content{
+    padding: 20px;
+}
+.delete-btn{
+    color: blue;
+    cursor: pointer;
+}
